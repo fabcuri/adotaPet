@@ -1,0 +1,73 @@
+body {
+    background-image: url('../assets/patinhas.jpg');
+    background-size: cover;
+    background-position: center;
+}
+
+.container-home {
+    width: 70%;
+    background-color: #FFF;
+    margin: 40px auto;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+    padding: 10px;
+}
+
+.container-home h1 {
+    color: #802600;
+    font-size: 24px;
+    text-align: center;
+
+}
+
+.input-container {
+    display: flex;
+    flex-direction: column;
+    /*gap: 5px; abre um espacamento entre os itens*/
+}
+
+.input-container label {
+    margin-bottom: 5px;
+}
+
+.input-container input,
+textarea {
+    width: 100%;
+    box-sizing: border-box;
+    /*todos os css devem ter....evita que os elementos estourem*/
+    height: 35px;
+    border-radius: 8px;
+    border: 1px solid #a9480b;
+    font-size: 18px;
+    outline-color: #802600;
+
+}
+
+.row-form {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+
+}
+
+.flex-45 {
+    width: 45%;
+}
+
+.input-container textarea {
+    height: auto;
+    /*aqui precisa colocar separado a altura para que o rows funcione*/
+}
+
+.button-submit {
+    width: 20%;
+    padding: 5px;
+    border-radius: 8px;
+    color: #FFF;
+    background-color: #802600;
+    margin-top: 10px;
+}
+
+.button-container {
+    display: flex;
+    justify-content: flex-end;
+}
