@@ -30,7 +30,7 @@ body {
 }
 
 .input-container input,
-textarea {
+textarea,select {
     width: 100%;
     box-sizing: border-box;
     /*todos os css devem ter....evita que os elementos estourem*/
@@ -70,4 +70,25 @@ textarea {
 .button-container {
     display: flex;
     justify-content: flex-end;
+}
+/* .footer-app {
+    position: fixed;
+    bottom: 0;
+    height: 50px;
+    width: 100%;
+    background-color: #a9480b;
+}
+
+.footer-app p {
+    text-align: center;
+    color: #fff;
+    font-size: 18x;
+} */
+
+@media (max-width: 800px) {
+    /*recurso para mudar algo quando dimunui demais o tamanho da tela*/
+
+    .row-form {
+        flex-direction: column;
+    }
 }
