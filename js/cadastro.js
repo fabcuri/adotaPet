@@ -48,6 +48,8 @@ function cadastrar(event) {
 
 
     const pet = {
+        // id:crypto.randomUUID() //numero aleatorio que nunca se repete ou
+        id: Date.now(),  //isso somente porque não tem back ....recurso didatico pra fazer o exercicio
         foto: foto,
         nome: nome,
         idade: idade,
