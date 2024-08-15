@@ -16,6 +16,7 @@
             <div class="input-container">
                 <label for="foto">Foto do Pet</label>
                 <input type="url" id="foto">
+                <span id="error-foto" style="color: red;"></span>
 
             </div>
             <div class="row-form">
@@ -32,10 +33,12 @@
             <div class="input-container">
                 <label for="cor">Cor:</label>
                 <input type="color" id="cor">
+                <span id="error-cor" style="color: red;"></span>
             </div>
             <div class="input-container">
                 <label for="descricao">Descrição:</label>
                 <textarea rows="3" id="descricao"></textarea>
+                <span id="error-descricao" style="color: red;"></span>
             </div>
             <div class="input-container">
                 <label>Tipo:</label>
@@ -46,6 +49,7 @@
                     <option value="PASSAROS">Passaros</option>
                     <option value="DIVERSOS">Diversos</option>
                 </select>
+                <span id="error-tipo" style="color: red;"></span>
 
             </div>
             <div class="button-container">
