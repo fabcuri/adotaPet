@@ -31,7 +31,8 @@ body {
 }
 
 .input-container input,
-textarea,select {
+textarea,
+select {
     width: 100%;
     box-sizing: border-box;
     /*todos os css devem ter....evita que os elementos estourem*/
@@ -73,6 +74,7 @@ textarea,select {
     display: flex;
     justify-content: flex-end;
 }
+
 /* .footer-app {
     position: fixed;
     bottom: 0;
@@ -93,4 +95,31 @@ textarea,select {
     .row-form {
         flex-direction: column;
     }
+}
+
+/* css da tela de listagem */
+.container-pets {
+    display: flex;
+    flex-wrap: wrap;
+    /*esta dizendo que se não couber na tela não use scroll...joque pra baixo*/
+    justify-content: space-evenly;
+    gap: 10px;
+    /*descola um elemento do outro */
+}
+
+.item-pet {
+
+    background-color: #d49797;
+    border-radius: 8px;
+    padding: 10px;
+    width: 200px;
+    border: 1px solid #000;
+
+    display: flex;
+    flex-direction: column;
+    /* justify-content: center; alinha as colunas */
+    align-items: center;
+    /*alinha a horizontal*/
+
+
 }
