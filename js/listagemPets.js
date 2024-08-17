@@ -1,29 +1,45 @@
+function deletar(id) {
+    const petsAtuais = JSON.parse(localStorage.getItem("pets"))
+    const petsFiltrados = petsAtuais.filter((item) => item.id !== id) /*filter percorre o array e remove conforme a condição e devolve um novo array*/
+    localStorage.setItem("pets", JSON.stringify(petsFiltrados))/*insere no localstorage a nova listagem*/
+    document.getElementById("lista-pets").innerText = "" /*limpa tudo o que tem na lista*/
+    carregarDados()
+}
+
 function carregarDados() {
-    const petsMemoria = JSON.parse(localStorage.getItem("pets")) /*peguei a string do localstorage e transformei em array e guardei na variavel*/
+    const petsNaMemoria = JSON.parse(localStorage.getItem("pets")) /*peguei a string do localstorage e transformei em array e guardei na variavel*/
     const lista = document.getElementById("lista-pets")
     // const meuH1 = document.createElement("h1")
     // meuH1.innerText = "testando"
     // lista.append(meuH1)
-    const div = document.createElement("div")
-    div.classList.add("item-pet")/*geração da div e atribuição da classe*/
+    petsNaMemoria.forEach((pet) => {
+        console.log(pet.nome)
+        const div = document.createElement("div")
+        div.classList.add("item-pet")/*geração da div e atribuição da classe*/
 
-    const img = document.createElement("img")
-    img.setAttribute("width", "150px")
-    img.setAttribute("src", "https://s1.static.brasilescola.uol.com.br/be/e/Ra%C3%A7as-de-cachorros.jpg")
+        const img = document.createElement("img")
+        img.setAttribute("width", "150px")
+        img.setAttribute("src", pet.foto)
 
-    div.append(img)
+        div.append(img)
 
-    const h2 = document.createElement("h2")
-    h2.innerText = "testando"
+        const h2 = document.createElement("h2")
+        h2.innerText = pet.nome
 
-    div.append(h2)
+        div.append(h2)
 
-    const button = document.createElement("button")
-    button.innerText = "Adotar"
+        const button = document.createElement("button")
+        button.innerText = "Deletar"
+        button.onclick = () => deletar(pet.id)/*passando com arrayfuction não executa ate clicar, isso porque a função tem parametro*/
+        /*se a função fosse sem parametro, deveria estar tb sem parentese*/
 
-    div.append(button)
-    lista.append(div)
-    console.log(div)
+        div.append(button)
+
+        lista.append(div)
+
+    });
+
+
 
 
 }

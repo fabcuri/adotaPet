@@ -123,3 +123,20 @@ select {
 
 
 }
+
+.menu {
+    height: 50px;
+
+    background-color: #802600;
+    display: flex;
+    justify-content: space-between;
+
+
+}
+
+.menu a {
+    color: #FFF;
+    font-size: 18px;
+    font-weight: bold;
+    padding: 10px;
+}
