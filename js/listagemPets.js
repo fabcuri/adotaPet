@@ -28,12 +28,23 @@ function carregarDados() {
 
         div.append(h2)
 
-        const button = document.createElement("button")
-        button.innerText = "Deletar"
-        button.onclick = () => deletar(pet.id)/*passando com arrayfuction não executa ate clicar, isso porque a função tem parametro*/
+        const buttonDeletar = document.createElement("button")
+        buttonDeletar.innerText = "Deletar"
+        buttonDeletar.onclick = () => deletar(pet.id)/*passando com arrayfuction não executa ate clicar, isso porque a função tem parametro*/
         /*se a função fosse sem parametro, deveria estar tb sem parentese*/
 
-        div.append(button)
+        const buttonAdotar = document.createElement("button")
+        buttonAdotar.innerText = "Adotar"
+        buttonAdotar.onclick = () => window.location.href = "././detalhes-pet.html?id = " + pet.id
+
+        const divBotoes = document.createElement("div")
+        divBotoes.classList.add("pet-card-botoes")
+
+
+        divBotoes.append(buttonDeletar)
+        divBotoes.append(buttonAdotar)
+
+        div.append(divBotoes)
 
         lista.append(div)
 

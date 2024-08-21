@@ -71,6 +71,24 @@ document
     .getElementById('form-pet')
     .addEventListener('submit', cadastrar)
 
+    document.getElementById("foto").addEventListener("input", function (event){
+        document.getElementById("visualizacao-url").setAttribute("src",this.value)
+    })
+
+    document.getElementById("descricao").addEventListener("blur", function(){
+        console.log(this.value)
+        let valorDigitado = this.value
+
+        const palavrasInadequadas = ["java","github","gupy","pamonha","delphi"]
+
+        palavrasInadequadas.forEach((palavra)=>{
+            if(valorDigitado.includes(palavra)){
+               valorDigitado =  valorDigitado.replaceAll(palavra, "*******")
+            }
+        })
+        document.getElementById("descricao").value = valorDigitado
+    })
+
 // function alterarImagem(event) {
 //     const valorUrl = event.srcElement.value
 //     document.getElementById("catImagePreview").src = valorUrl
