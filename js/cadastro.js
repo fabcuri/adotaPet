@@ -1,5 +1,9 @@
-function cadastrar(event) {
-    event.preventDefault()
+function adicionarPet(event) {
+
+
+    /* ======= Capturou os valores do formulario  ======= */
+
+    event.preventDefault() // evita da tela recarregar :)
 
     const foto = document.getElementById('foto').value
     const nome = document.getElementById('nome').value
@@ -8,93 +12,114 @@ function cadastrar(event) {
     const descricao = document.getElementById('descricao').value
     const tipo = document.getElementById('tipo').value
 
+    /* ======= VALIDACAO DO FORMULARIO  ======= */
+
     if (foto === "") {
         document.getElementById('foto').style.borderColor = "red"
-        document.getElementById('error-foto').innerText = 'Foto é obrigatoria'
+        document.getElementById('foto').style.borderWidth = "2px"
+        document.getElementById('error-foto').innerText = "Foto do pet é obrigatória"
     } else {
         document.getElementById('foto').style.borderColor = ""
+        document.getElementById('foto').style.borderWidth = ""
         document.getElementById('error-foto').innerText = ""
     }
 
-    if (!nome) { //veja uma outra forma de declarar a variavel vazia
+    if (nome === "") {
+        // alert("Nome é obrigatório") Mostra um aviso no navegaor
         document.getElementById('nome').style.borderColor = "red"
-        document.getElementById('error-nome').innerText = 'Nome é obrigatorio'
+        document.getElementById('nome').style.borderWidth = "2px"
+        document.getElementById('error-nome').innerText = "Nome é obrigatório"
     } else {
         document.getElementById('nome').style.borderColor = ""
+        document.getElementById('nome').style.borderWidth = ""
         document.getElementById('error-nome').innerText = ""
     }
 
-    if (cor === "") {
-        document.getElementById('cor').style.borderColor = "red"
-        document.getElementById('error-cor').innerText = 'Cor é obrigatoria'
-    } else {
-        document.getElementById('cor').style.borderColor = ""
-        document.getElementById('error-cor').innerText = ""
-    }
     if (descricao === "") {
         document.getElementById('descricao').style.borderColor = "red"
-        document.getElementById('error-descricao').innerText = 'Descrição  é obrigatoria'
+        document.getElementById('descricao').style.borderWidth = "2px"
+        document.getElementById('error-descricao').innerText = "Descricao é obrigatória"
     } else {
         document.getElementById('descricao').style.borderColor = ""
+        document.getElementById('descricao').style.borderWidth = ""
         document.getElementById('error-descricao').innerText = ""
     }
+
     if (tipo === "") {
         document.getElementById('tipo').style.borderColor = "red"
-        document.getElementById('error-tipo').innerText = 'Tipo é obrigatorio'
+        document.getElementById('tipo').style.borderWidth = "2px"
+        document.getElementById('error-tipo').innerText = "O tipo é obrigatório"
     } else {
         document.getElementById('tipo').style.borderColor = ""
+        document.getElementById('tipo').style.borderWidth = ""
         document.getElementById('error-tipo').innerText = ""
     }
 
-    if (nome && descricao && foto && tipo) {
+
+    if (nome && foto && descricao && tipo) {
         const pet = {
-            // id:crypto.randomUUID() //numero aleatorio que nunca se repete ou
-            id: Date.now(),  //isso somente porque não tem back ....recurso didatico pra fazer o exercicio
+            // id: Math.random() Opcão 1 para gerar um número aleatório,
+            // id: crypto.randomUUID() Opção 2 para gerar um número aleatório,
+            id: Date.now(),
             foto: foto,
             nome: nome,
             idade: idade,
             cor: cor,
             descricao: descricao,
-            tipo: tipo
+            tipo: tipo,
+            // criado: new Date().toLocaleDateString()
         }
-        const listaNoLocalStorage = JSON.parse(localStorage.getItem("pets")) || []//vai no localstorage e pegua a lista
-        //se o valor for nulo...pq nao tem informação ainda....ele vai atribuir um array vazio
+
+        let listaNoLocalStorage = JSON.parse(localStorage.getItem("pets"))    // vai no local storage e pega a lista
+
+        if (listaNoLocalStorage === null) listaNoLocalStorage = []
+
         listaNoLocalStorage.push(pet)
 
-        localStorage.setItem("pets", JSON.stringify(listaNoLocalStorage)) //esse comando salva a informação em string no localstorage
-        document.getElementById("form-pet").reset //limpa o formulario apos o submit
+        localStorage.setItem("pets", JSON.stringify(listaNoLocalStorage)) // salvar no local storage
+
+        document.getElementById('form-pet').reset()
 
     }
+    
 }
 
-document
-    .getElementById('form-pet')
-    .addEventListener('submit', cadastrar)
+document // seu documento HTML
+    .getElementById('form-pet') // ir no documento e localizar o elemento com id form-pet
+    .addEventListener('submit', adicionarPet) // adicionar um evento de submissão vinculado a funcao adicionar pet
 
-    document.getElementById("foto").addEventListener("input", function (event){
-        document.getElementById("visualizacao-url").setAttribute("src",this.value)
+
+document.getElementById("foto").addEventListener("input", function (event) {
+    // event.target.value
+    document.getElementById('visualizacao-url').setAttribute('src', this.value)
+})
+
+document.getElementById("descricao").addEventListener('blur', function (element) {
+    // console.log(this.value)
+    // console.log(element.target.value)
+    // console.log(document.getElementById("descricao").value)
+    let valorDigitado = this.value
+
+    const palavrasInadequadas = ["java", "github", "capivara", "pamonha", "delphin"]
+    //console.log(palavrasInadequadas[10])
+
+    palavrasInadequadas.forEach((palavra) => {
+         if(valorDigitado.includes(palavra)) {
+           // console.log("Tem a palavra na string", palavra)
+           valorDigitado = valorDigitado.replaceAll(palavra, '****')
+         }
     })
 
-    document.getElementById("descricao").addEventListener("blur", function(){
-        console.log(this.value)
-        let valorDigitado = this.value
+    //this.value = valorDigitado
+    document.getElementById('descricao').value = valorDigitado
 
-        const palavrasInadequadas = ["java","github","gupy","pamonha","delphi"]
+    console.log(valorDigitado)
 
-        palavrasInadequadas.forEach((palavra)=>{
-            if(valorDigitado.includes(palavra)){
-               valorDigitado =  valorDigitado.replaceAll(palavra, "*******")
-            }
-        })
-        document.getElementById("descricao").value = valorDigitado
-    })
+})
 
-// function alterarImagem(event) {
-//     const valorUrl = event.srcElement.value
-//     document.getElementById("catImagePreview").src = valorUrl
-//     document.getElementById("catImagePreview").style.borderRadius = "50%"
-// }
 
-// document
-// .getElementById("catImage")
-// .addEventListener("input", alterarImagem)
+document.getElementById('nome').addEventListener('paste', function (event) {
+    event.preventDefault()
+    //this.value = this.value + this.value
+}) 
+   

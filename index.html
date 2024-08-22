@@ -1,71 +1,77 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Home</title>
-    <link rel="stylesheet" href="css/normalize.css" >
+     <link rel="stylesheet" href="styles/normalize.css">
     <link rel="stylesheet" href="css/index.css">
 </head>
 
 <body>
+    
     <div class="menu">
         <a href="listagemPets.html">Home</a>
         <a href="index.html">Cadastro</a>
-
     </div>
+
     <div class="container-home">
         <h1>Cadastro de pets</h1>
-        <form id="form-pet"> <!--aqui posso colocar um autocomplete:off para que não fique disponivel as anteriores -->
-            <img width="150px" id="visualizacao-url" />
+        <form id="form-pet" autocomplete="off">
+            <img  width="150px" id="visualizacao-url" />
             <div class="input-container">
-                <label for="foto">Foto do Pet</label>
-                <input type="url" id="foto">
-                <span id="error-foto" style="color: red;"></span>
+                <label for="foto">Foto do pet</label>
+                <input type="url" id="foto" >
+                <span id="error-foto" style="color: red"></span>
+            </div>
 
-            </div>
-            <div class="row-form">
+            <div class="form-row">
                 <div class="input-container flex-45">
-                    <label for="nome">Nome do Pet:</label>
-                    <input type="text" id="nome" placeholder="Digite o nome completo do pet" />
-                    <span id="error-nome" style="color: red;"></span>
+                    <label for="nome">Nome do pet</label>
+                    <input id="nome" placeholder="Nome completo" />
+                    <span id="error-nome" style="color: red"></span>
                 </div>
                 <div class="input-container flex-45">
-                    <label for="idade">Idade:</label>
-                    <input type="number" id="idade" />
+                    <label for="idade">Idade</label>
+                    <input min="0" type="number" id="idade" />
                 </div>
             </div>
+
             <div class="input-container">
-                <label for="cor">Cor:</label>
-                <input type="color" id="cor">
-                <span id="error-cor" style="color: red;"></span>
+                <label for="cor">Cor do pet</label>
+                <input type="color" id="cor" value="#fff" />
             </div>
+
+
             <div class="input-container">
-                <label for="descricao">Descrição:</label>
-                <textarea rows="3" id="descricao"></textarea>
-                <span id="error-descricao" style="color: red;"></span>
+                <label for="descricao">Descrição</label>
+                <textarea id="descricao" rows="5" ></textarea>
+                <span id="error-descricao" style="color: red"></span>
             </div>
+
             <div class="input-container">
-                <label>Tipo:</label>
+                <label>Tipo</label>
                 <select id="tipo">
-                    <option value="">Selecione uma opção</option>
+                    <option value="" class="option-bold">Selecione um opção</option>
                     <option value="CACHORRO">Cachorro</option>
                     <option value="GATO">Gato</option>
-                    <option value="PASSAROS">Passaros</option>
+                    <option value="PASSARO">Pássaros</option>
                     <option value="DIVERSOS">Diversos</option>
                 </select>
-                <span id="error-tipo" style="color: red;"></span>
-
+                <span id="error-tipo" style="color: red"></span>
             </div>
+
             <div class="button-container">
                 <button class="button-submit" type="submit">Salvar</button>
             </div>
         </form>
-        <!-- <footer class="footer-app">
-            <p>Todos os direitos reservados a lab 365</p>
-        </footer> -->
     </div>
+
+    <footer class="footer-app">
+        <p>Todos os direitos reservador a lab 365</p>
+    </footer>
+
     <script src="js/cadastro.js"></script>
 </body>
 

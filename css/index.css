@@ -1,9 +1,3 @@
-body {
-    background-image: url('../assets/patinhas.jpg');
-    background-size: cover;
-    background-position: center;
-}
-
 .container-home {
     width: 70%;
     background-color: #FFF;
@@ -16,58 +10,45 @@ body {
     color: #802600;
     font-size: 24px;
     text-align: center;
-
 }
 
 .input-container {
-    display: flex;
-    flex-direction: column;
-    margin: 5px 0;
-    /*gap: 5px; abre um espacamento entre os itens*/
+ display: flex;  
+ flex-direction: column;
+ margin: 5px 0;
 }
 
 .input-container label {
-    margin-bottom: 5px;
+  margin-bottom: 5px;
 }
 
-.input-container input,
-textarea,
-select {
+.option-bold {
+    font-weight: bold;
+}
+
+.input-container input, textarea, select {
     width: 100%;
     box-sizing: border-box;
-    /*todos os css devem ter....evita que os elementos estourem*/
     height: 35px;
     border-radius: 8px;
-    border: 1px solid #a9480b;
     font-size: 18px;
+    border: 1px solid #a9480b;
     outline-color: #802600;
-
-}
-
-.row-form {
-    display: flex;
-    justify-content: space-between;
-    margin-bottom: 10px;
-
-}
-
-.flex-45 {
-    width: 45%;
+    resize: vertical;
 }
 
 .input-container textarea {
     height: auto;
-    /*aqui precisa colocar separado a altura para que o rows funcione*/
 }
 
-.button-submit {
-    width: 20%;
-    padding: 5px;
-    border-radius: 8px;
-    color: #FFF;
-    background-color: #802600;
-    margin-top: 10px;
-    cursor: pointer;
+.form-row {
+   display: flex;
+   justify-content: space-between;
+   // margin: 10px;
+}
+
+.flex-45 {
+    flex-basis: 45%;
 }
 
 .button-container {
@@ -75,7 +56,23 @@ select {
     justify-content: flex-end;
 }
 
-/* .footer-app {
+.button-submit {
+    width: 100px;
+    border-radius: 8px;
+    height: 34px;
+    background-color: #FFF;
+    color: #802600;
+    margin-top: 10px;
+    border: 1px solid #802600;
+    cursor: pointer;
+}
+
+.button-submit:hover {
+    background-color: #802600;
+    color: #FFF;
+}
+
+.footer-app {
     position: fixed;
     bottom: 0;
     height: 50px;
@@ -87,29 +84,30 @@ select {
     text-align: center;
     color: #fff;
     font-size: 18x;
-} */
+}
 
 @media (max-width: 800px) {
-    /*recurso para mudar algo quando dimunui demais o tamanho da tela*/
 
-    .row-form {
+    .form-row {
         flex-direction: column;
+    }
+
+    .container-home {
+        width: 90%;
     }
 }
 
-/* css da tela de listagem */
+/*  CSS da tela de listagem pets  */
+
 .container-pets {
     display: flex;
     flex-wrap: wrap;
-    /*esta dizendo que se não couber na tela não use scroll...joque pra baixo*/
     justify-content: space-evenly;
     gap: 10px;
-    /*descola um elemento do outro */
 }
 
 .item-pet {
-
-    background-color: #d49797;
+    background-color: #FFF;
     border-radius: 8px;
     padding: 10px;
     width: 200px;
@@ -117,32 +115,37 @@ select {
 
     display: flex;
     flex-direction: column;
-    /* justify-content: center; alinha as colunas */
-    align-items: center;
-    /*alinha a horizontal*/
+    align-items: center; 
+}
 
-
+.item-pet img {
+    object-fit: cover;
 }
 
 .menu {
     height: 50px;
-
     background-color: #802600;
+
     display: flex;
     justify-content: space-between;
-
-
+    align-items: center;
+    padding: 5px;
 }
 
 .menu a {
     color: #FFF;
     font-size: 18px;
     font-weight: bold;
-    padding: 10px;
 }
-    .pet-card-botoes{
-        display: flex;
-        flex-direction: row;
-        justify-content: space-between;
-        gap: 15px;
-    }
+
+.pet-card-botoes {
+    display: flex;
+    gap: 20px;
+}
+
+
+/*
+.list-group-flush {
+    border: 1px solid red !important;
+}
+    */
